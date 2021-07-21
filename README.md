@@ -4,19 +4,10 @@ A textarea element that handles and hands off events well.
 
 This element enshrines the concept of being active, that is being both visible *and* hogging the user input. Hogging the user input means that several event handlers are registered to handle user input events when the element is activated. These handlers are then unregistered when the element is deactivated. Using it will take some of the headache out of having multiple textareas in one application because only the active rich textarea will invoke its handlers. It also provides better event handling. For example, the change handler will be invoked whenever the content or selection changes, no matter how often, rather then just, say, when the focus is lost.
 
-### JSX support
-
-There is now support for JSX in the form of [Juxtapose](https://github.com/djalbat/Juxtapose). So although you will always be able to call constructors directly if you wish, creating Easy elements by way of JSX is *highly recommended*. The contents of this readme file will stay as a reference, however a much better place to start from now on is the online documentation for Juxtapose. The section dealing directly with this project is here:
-
-**[Juxtapose online documentation - Easy-RichTextarea](http://juxtapose.info#easy-richtextarea)**
-
-From there you can easily navigate to get an overview of Juxtapose.
-
-### Related projects
-
 - [Easy](https://github.com/djalbat/easy) Elements that abstract away from the DOM.
 - [Easy Layout](https://github.com/djalbat/easy-layout) Layout elements that work with CSS flexbox.
-- [Easy DragAndDrop](https://github.com/djalbat/easy-draganddrop) Drag and drop elements including an explorer and a rubbish bin.
+- [Easy File System](https://github.com/djalbat/easy-file-system) A file system explorer and a rubbish bin.
+- [Easy Drag and Drop](https://github.com/djalbat/easy-drag-and-drop) Drag and drop functionality for Easy elements.
 
 ## Installation
 
