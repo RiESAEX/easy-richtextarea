@@ -6,15 +6,15 @@ import { window, Element } from "easy";
 
 import Selection from "./selection"
 
-import { BLUR,
-         INPUT,
-         FOCUS,
-         CHANGE,
-         SCROLL,
-         KEYDOWN,
-         MOUSEDOWN,
-         MOUSEMOVE,
-         MOUSEUP_CONTEXTMENU_BLUR } from "./constants";
+import { BLUR_EVENT_TYPE,
+         INPUT_EVENT_TYPE,
+         FOCUS_EVENT_TYPE,
+         CHANGE_EVENT_TYPE,
+         SCROLL_EVENT_TYPE,
+         KEYDOWN_EVENT_TYPE,
+         MOUSEDOWN_EVENT_TYPE,
+         MOUSEMOVE_EVENT_TYPE,
+         MOUSEUP_CONTEXTMENU_BLUR_EVENT_TYPE } from "./eventTypes";
 
 const defer = (func) => setTimeout(func, 0); ///
 
@@ -121,21 +121,21 @@ class RichTextarea extends Element {
 
     this.setMouseDown(mouseDown);
 
-    window.on(MOUSEUP_CONTEXTMENU_BLUR, this.mouseUpHandler, this); ///
+    window.on(MOUSEUP_CONTEXTMENU_BLUR_EVENT_TYPE, this.mouseUpHandler, this); ///
 
-    this.on(MOUSEDOWN, this.mouseDownHandler, this);
+    this.on(MOUSEDOWN_EVENT_TYPE, this.mouseDownHandler, this);
 
-    this.on(MOUSEMOVE, this.mouseMoveHandler, this);
+    this.on(MOUSEMOVE_EVENT_TYPE, this.mouseMoveHandler, this);
 
-    this.on(KEYDOWN, this.keyDownHandler, this);
+    this.on(KEYDOWN_EVENT_TYPE, this.keyDownHandler, this);
 
-    this.on(INPUT, this.inputHandler, this);
+    this.on(INPUT_EVENT_TYPE, this.inputHandler, this);
 
-    this.on(SCROLL, this.scrollHandler, this);
+    this.on(SCROLL_EVENT_TYPE, this.scrollHandler, this);
 
-    this.on(FOCUS, this.focusHandler, this);
+    this.on(FOCUS_EVENT_TYPE, this.focusHandler, this);
 
-    this.on(BLUR, this.blurHandler, this);
+    this.on(BLUR_EVENT_TYPE, this.blurHandler, this);
 
     this.addClass("active");
   }
@@ -145,76 +145,76 @@ class RichTextarea extends Element {
 
     this.setMouseDown(mouseDown);
 
-    window.off(MOUSEUP_CONTEXTMENU_BLUR, this.mouseUpHandler, this);  ///
+    window.off(MOUSEUP_CONTEXTMENU_BLUR_EVENT_TYPE, this.mouseUpHandler, this);  ///
 
-    this.off(MOUSEDOWN, this.mouseDownHandler, this);
+    this.off(MOUSEDOWN_EVENT_TYPE, this.mouseDownHandler, this);
 
-    this.off(MOUSEMOVE, this.mouseMoveHandler, this);
+    this.off(MOUSEMOVE_EVENT_TYPE, this.mouseMoveHandler, this);
 
-    this.off(KEYDOWN, this.keyDownHandler, this);
+    this.off(KEYDOWN_EVENT_TYPE, this.keyDownHandler, this);
 
-    this.off(INPUT, this.inputHandler, this);
+    this.off(INPUT_EVENT_TYPE, this.inputHandler, this);
 
-    this.off(SCROLL, this.scrollHandler, this);
+    this.off(SCROLL_EVENT_TYPE, this.scrollHandler, this);
 
-    this.off(FOCUS, this.focusHandler, this);
+    this.off(FOCUS_EVENT_TYPE, this.focusHandler, this);
 
-    this.off(BLUR, this.blurHandler, this);
+    this.off(BLUR_EVENT_TYPE, this.blurHandler, this);
 
     this.removeClass("active");
   }
 
   onBlur(blurHandler, element) {
-    const eventType = BLUR,
+    const eventType = BLUR_EVENT_TYPE,
           handler = blurHandler;  ///
 
     this.addEventListener(eventType, handler, element);
   }
 
   offBlur(blurHandler, element) {
-    const eventType = BLUR,
+    const eventType = BLUR_EVENT_TYPE,
           handler = blurHandler;  ///
 
     this.removeEventListener(eventType, handler, element);
   }
 
   onFocus(blurHandler, element) {
-    const eventType = FOCUS,
+    const eventType = FOCUS_EVENT_TYPE,
           handler = blurHandler;  ///
 
     this.addEventListener(eventType, handler, element);
   }
 
   offFocus(blurHandler, element) {
-    const eventType = FOCUS,
+    const eventType = FOCUS_EVENT_TYPE,
           handler = blurHandler;  ///
 
     this.removeEventListener(eventType, handler, element);
   }
 
   onScroll(scrollHandler, element) {
-    const eventType = SCROLL,
+    const eventType = SCROLL_EVENT_TYPE,
           handler = scrollHandler;  ///
 
     this.addEventListener(eventType, handler, element);
   }
 
   offScroll(scrollHandler, element) {
-    const eventType = SCROLL,
+    const eventType = SCROLL_EVENT_TYPE,
           handler = scrollHandler;  ///
 
     this.removeEventListener(eventType, handler, element);
   }
 
   onChange(changeHandler, element) {
-    const eventType = CHANGE,
+    const eventType = CHANGE_EVENT_TYPE,
           handler = changeHandler;  ///
 
     this.addEventListener(eventType, handler, element);
   }
 
   offChange(changeHandler, element) {
-    const eventType = CHANGE,
+    const eventType = CHANGE_EVENT_TYPE,
           handler = changeHandler;  ///
 
     this.removeEventListener(eventType, handler, element);
@@ -229,7 +229,7 @@ class RichTextarea extends Element {
   mouseDownHandler(event, element) {
     const forced = false,
           mouseDown = true,
-          eventType = CHANGE;
+          eventType = CHANGE_EVENT_TYPE;
 
     this.setMouseDown(mouseDown);
 
@@ -239,7 +239,7 @@ class RichTextarea extends Element {
   mouseMoveHandler(event, element) {
     const forced = false,
           mouseDown = this.isMouseDown(),
-          eventTYpe = CHANGE;
+          eventTYpe = CHANGE_EVENT_TYPE;
 
     if (mouseDown) {
       this.intermediateHandler(event, element, eventTYpe, forced);
@@ -248,34 +248,34 @@ class RichTextarea extends Element {
 
   keyDownHandler(event, element) {
     const forced = false,
-          eventType = CHANGE;
+          eventType = CHANGE_EVENT_TYPE;
 
     defer(() => this.intermediateHandler(event, element, eventType, forced));
   }
 
   inputHandler(event, element) {
     const forced = false,
-          eventType = CHANGE;
+          eventType = CHANGE_EVENT_TYPE;
 
     this.intermediateHandler(event, element, eventType, forced);
   }
 
   scrollHandler(event, element) {
-    const eventType = SCROLL;
+    const eventType = SCROLL_EVENT_TYPE;
 
     this.callHandlers(eventType, event, element);
   }
 
   focusHandler(event, element) {
     const forced = true,
-          eventType = FOCUS;
+          eventType = FOCUS_EVENT_TYPE;
 
     defer(() => this.intermediateHandler(event, element, eventType, forced));
   }
 
   blurHandler(event, element) {
     const forced = true,
-          eventType = BLUR;
+          eventType = BLUR_EVENT_TYPE;
 
     this.intermediateHandler(event, element, eventType, forced);
   }
