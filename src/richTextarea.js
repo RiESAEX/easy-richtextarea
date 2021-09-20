@@ -306,7 +306,7 @@ class RichTextarea extends Element {
            (handler !== this.focusHandler) &&
            (handler !== this.scrollHandler) ) {
 
-        handler.call(element, ...remainingArguments);
+        handler.call(element, ...remainingArguments, this); ///
       }
     });
   }
