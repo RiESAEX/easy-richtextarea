@@ -300,13 +300,11 @@ class RichTextarea extends Element {
     const eventListeners = this.findEventListeners(eventType);
 
     eventListeners.forEach((eventListener) => {
-      const { handler, element } = eventListener;
+      const { handler, element: handlerElement } = eventListener,
+            element = this; ///
 
-      if ( (handler !== this.blurHandler) &&
-           (handler !== this.focusHandler) &&
-           (handler !== this.scrollHandler) ) {
-
-        handler.call(element, ...remainingArguments, this); ///
+      if ((handler !== this.blurHandler) && (handler !== this.focusHandler) && (handler !== this.scrollHandler)) {
+        handler.call(handlerElement, ...remainingArguments, element);
       }
     });
   }
