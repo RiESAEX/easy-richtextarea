@@ -4,6 +4,8 @@ import withStyle from "easy-with-style";  ///
 
 import { window, Element } from "easy";
 
+import "./keys";
+
 import Selection from "./selection"
 
 import { BLUR_EVENT_TYPE,
