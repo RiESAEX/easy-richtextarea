@@ -1,7 +1,5 @@
 "use strict";
 
-import withStyle from "easy-with-style";  ///
-
 import { window, Element } from "easy";
 
 import "./keys";
@@ -20,7 +18,7 @@ import { BLUR_EVENT_TYPE,
 
 const defer = (func) => setTimeout(func, 0); ///
 
-class RichTextarea extends Element {
+export default class RichTextarea extends Element {
   isActive() {
     const active = this.hasClass("active");
 
@@ -403,13 +401,3 @@ class RichTextarea extends Element {
     "active"
   ];
 }
-
-export default withStyle(RichTextarea)`
-
-  display: none;
-
-  .active {
-    display: block;
-  }
-
-`
