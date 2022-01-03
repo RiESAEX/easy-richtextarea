@@ -6,12 +6,11 @@ import { RichTextarea } from "../browser";  ///
 
 export default withStyle(RichTextarea)`
 
-  border: 1px solid darkgrey;
+  border: 1px solid black;
   width: 32rem;
   height: 32rem;
   padding: 0.25rem;
   font-size: 1.2rem;
-  margin-top: 0.5rem;
   font-family: monospace;
 
 `;
