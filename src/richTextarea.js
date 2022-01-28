@@ -1,20 +1,21 @@
 "use strict";
 
-import { window, Element } from "easy";
+import { window, Element, eventTypes } from "easy";
 
 import "./keys";
 
 import Selection from "./selection"
 
-import { BLUR_EVENT_TYPE,
+const { BLUR_EVENT_TYPE,
          INPUT_EVENT_TYPE,
          FOCUS_EVENT_TYPE,
          CHANGE_EVENT_TYPE,
          SCROLL_EVENT_TYPE,
          KEYDOWN_EVENT_TYPE,
+         MOUSEUP_EVENT_TYPE,
          MOUSEDOWN_EVENT_TYPE,
          MOUSEMOVE_EVENT_TYPE,
-         MOUSEUP_CONTEXTMENU_BLUR_EVENT_TYPE } from "./eventTypes";
+         CONTEXTMENU_EVENT_TYPE } = eventTypes;
 
 const defer = (func) => setTimeout(func, 0); ///
 
@@ -121,7 +122,7 @@ export default class RichTextarea extends Element {
 
     this.setMouseDown(mouseDown);
 
-    window.on(MOUSEUP_CONTEXTMENU_BLUR_EVENT_TYPE, this.mouseUpHandler, this); ///
+    window.on(`${BLUR_EVENT_TYPE} ${MOUSEUP_EVENT_TYPE} ${CONTEXTMENU_EVENT_TYPE}`, this.mouseUpHandler, this); ///
 
     this.on(MOUSEDOWN_EVENT_TYPE, this.mouseDownHandler, this);
 
@@ -145,7 +146,7 @@ export default class RichTextarea extends Element {
 
     this.setMouseDown(mouseDown);
 
-    window.off(MOUSEUP_CONTEXTMENU_BLUR_EVENT_TYPE, this.mouseUpHandler, this);  ///
+    window.off(`${BLUR_EVENT_TYPE} ${MOUSEUP_EVENT_TYPE} ${CONTEXTMENU_EVENT_TYPE}`, this.mouseUpHandler, this); ///
 
     this.off(MOUSEDOWN_EVENT_TYPE, this.mouseDownHandler, this);
 
