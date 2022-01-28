@@ -390,10 +390,6 @@ export default class RichTextarea extends Element {
 
   static tagName = "textarea";
 
-  static defaultProperties = {
-    className: "rich"
-  };
-
   static ignoredProperties = [
     "onChange",
     "onScroll",
@@ -401,4 +397,8 @@ export default class RichTextarea extends Element {
     "onBlur",
     "active"
   ];
+
+  static defaultProperties = {
+    className: "rich"
+  };
 }
