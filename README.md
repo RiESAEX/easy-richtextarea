@@ -117,16 +117,18 @@ import withStyle from "easy-with-style";
 
 export default (RichTextarea)`
 
-  ...
+  display: none;
 
   .active {
 
-    ...
+    display: block
 
   }
 
 `;
 ```
+
+Here active rich textarea elements are visible, inactive ones are not.
 
 ## Building
 
