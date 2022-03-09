@@ -2,7 +2,7 @@
 
 A textarea element that handles and hands off events well.
 
-This element enshrines the concept of being active, that is being both visible *and* hogging the user input. Hogging the user input means that several event handlers are registered to handle user input events when the element is activated. These handlers are then unregistered when the element is deactivated. Using it will take some of the headache out of having multiple textareas in one application because only the active rich textarea will invoke its handlers. It also provides better event handling. For example, the change handler will be invoked whenever the content or selection changes, no matter how often, rather then just, say, when the focus is lost.
+This element enshrines the concept of being active, that is hogging the user input. This means that several event handlers are registered to handle user input events when the element is activated. These handlers are then unregistered when the element is deactivated. Using it will take some of the headache out of having multiple textareas in one application because only the active rich textarea will invoke its handlers. It also provides better event handling. For example, the change handler will be invoked whenever the content or selection changes, no matter how often, rather then just, say, when the focus is lost.
 
 ### JSX support
 
@@ -115,7 +115,7 @@ There is no default styling. The rich textarea element has a class name, however
 ```
 import withStyle from "easy-with-style";
 
-export default (RichTextarea)`
+export default withStyle(RichTextarea)`
 
   display: none;
 
