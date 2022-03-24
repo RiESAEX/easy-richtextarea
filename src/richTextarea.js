@@ -2,8 +2,6 @@
 
 import { window, Element, eventTypes } from "easy";
 
-import "./keys";
-
 import Selection from "./selection"
 
 const { BLUR_EVENT_TYPE,
