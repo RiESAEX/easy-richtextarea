@@ -13,6 +13,7 @@
     "easy": "^13.0.33"
   },
   "devDependencies": {
+    "@swc/cli": "^0.1.56",
     "@swc/core": "^1.2.160",
     "easy-with-style": "^3.0.122",
     "esbuild": "^0.9.2",
@@ -31,7 +32,8 @@
     "build": "npm run clean && npm run batch",
     "build-debug": "npm run clean && npm run batch-debug",
     "watch": "npm run clean && npm run batch && npm run incremental",
-    "watch-debug": "npm run clean && npm run batch-debug && npm run incremental-debug"
+    "watch-debug": "npm run clean && npm run batch-debug && npm run incremental-debug",
+    "swc": "swc ./src -d ./lib -s inline"
   },
   "browser": "./lib/browser.js",
   "main": "./lib/main.js"
