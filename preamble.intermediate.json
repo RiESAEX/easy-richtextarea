@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "sources": [
+    "../../src/example/preamble.js"
+  ],
+  "sourcesContent": [
+    "\"use strict\";\n\nimport { React, window } from \"easy\";\n\nwindow.assign({\n  React\n});\n"
+  ],
+  "names": [
+    "window",
+    "assign",
+    "React"
+  ],
+  "mappings": "AAAA,YAAY,CAAC;AAEiB,IAAA,KAAM,WAAN,MAAM,CAAA;AAEpCA,KAAM,QAACC,MAAM,CAAC;ICJd,ADKEC,KAAK,EAALA,KAAK,MAALA;CACD,CAAC,CAAC"
+}
