@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@swc/cli": "^0.1.56",
-    "@swc/core": "^1.2.160",
+    "@swc/core": "^1.2.161",
     "easy-with-style": "^3.0.122",
     "esbuild": "^0.9.2",
     "express": "^4.17.1",
